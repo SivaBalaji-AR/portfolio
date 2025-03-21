@@ -1,23 +1,24 @@
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { BsQuestionCircle, BsPerson } from "react-icons/bs";
-import quizia from "../Images/Quizia.png"
-import scholarchat from "../Images/ScholarChat.png"
+import quizia from "../Images/Quizia.png";
+import scholarchat from "../Images/ScholarChat.png";
 
 const projects = [
   {
     title: "Quizia",
-    link: "#",
+    link: "https://github.com/SivaBalaji-AR/QUIZIA-Complete.git",
+    online_deployment: "https://quizia-lac.vercel.app/",
     description: "Quiz app which integrates GenAI and Data Analytics to enhance learning experience",
     role: "Creator",
-    image:quizia, // Replace with actual image URL
+    image: quizia,
   },
   {
     title: "ScholarChat",
-    link: "#",
-    description: "Rag based chatbot, which is 100% offline.",
+    link: "https://github.com/SivaBalaji-AR/ScholarChat.git",
+    description: "RAG-based chatbot, which is 100% offline.",
     role: "Creator",
-    image:scholarchat, // Replace with actual image URL
+    image: scholarchat,
   },
 ];
 
@@ -34,7 +35,6 @@ const ProjectsSection = () => {
               key={index}
               className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""} gap-10`}
             >
-              {/* Project Image */}
               <div className="w-full md:w-1/2">
                 <img
                   src={project.image}
@@ -43,15 +43,27 @@ const ProjectsSection = () => {
                 />
               </div>
 
-              {/* Project Details */}
               <div className="w-full md:w-1/2">
                 <h3 className="text-2xl font-bold text-gray-900">{project.title}</h3>
                 <a
                   href={project.link}
                   className="text-blue-600 hover:text-blue-800 flex items-center gap-1 mt-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Go to the project <FaExternalLinkAlt size={12} />
                 </a>
+
+                {project.online_deployment && (
+                  <a
+                    href={project.online_deployment}
+                    className="text-green-600 hover:text-green-800 flex items-center gap-1 mt-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo <FaExternalLinkAlt size={12} />
+                  </a>
+                )}
 
                 <div className="mt-4 space-y-3">
                   <div className="flex items-start gap-2">
